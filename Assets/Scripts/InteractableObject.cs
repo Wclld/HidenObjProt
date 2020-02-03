@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class InteractableObject : MonoBehaviour
 {
-
 	[SerializeField] float _flashInTime;
 	[SerializeField] float _flashOutTime;
 	[SerializeField] float _moveTime;
