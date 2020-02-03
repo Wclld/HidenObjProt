@@ -50,6 +50,9 @@ public class InteractableObject : MonoBehaviour
 
 		var startRotation = transform.rotation;
 
+		var trail = GetComponent<TrailRenderer>();
+		trail.enabled = true;
+
 		var rectTransform = GetComponent<RectTransform>();
 		var startRectSize = rectTransform.rect.size; 
 		var targetRectSize = _placeInPanel.GetComponent<RectTransform>().rect.size;
@@ -64,12 +67,12 @@ public class InteractableObject : MonoBehaviour
 			var currentSize = Vector2.Lerp(startRectSize, targetRectSize, timePercent);;
 			rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, currentSize.y);
 			rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, currentSize.x);
-			
+
 			transform.position = Vector3.Lerp(startPos, targetPos, timePercent);
 			transform.rotation = Quaternion.Lerp(startRotation, Quaternion.identity, timePercent);
 
 			yield return null;
 		}
-		
+		gameObject.SetActive(false);
 	}
 }
