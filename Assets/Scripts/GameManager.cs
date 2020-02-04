@@ -12,4 +12,12 @@ public class GameManager : MonoBehaviour
 	{
 		ScoreBoard.SaveScore();
 	}
+	private void OnApplicationFocus(bool focusStatus)
+	{
+		ScoreBoard.SaveScore();
+	}
+	private void OnApplicationPause(bool pauseStatus)
+	{
+		ScoreBoard.SaveScore();
+	}
 }
