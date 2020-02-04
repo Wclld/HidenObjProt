@@ -4,7 +4,6 @@ public class GameManager : MonoBehaviour
 {
 	private void Awake()
 	{
-		
 		InteractableObject.OnObjectFound += () => ScoreBoard.ChangeScore(1);
 	}
 
@@ -14,10 +13,12 @@ public class GameManager : MonoBehaviour
 	}
 	private void OnApplicationFocus(bool focusStatus)
 	{
-		ScoreBoard.SaveScore();
+		if(!focusStatus)
+			ScoreBoard.SaveScore();
 	}
 	private void OnApplicationPause(bool pauseStatus)
 	{
-		ScoreBoard.SaveScore();
+		if(pauseStatus)
+			ScoreBoard.SaveScore();
 	}
 }

@@ -27,5 +27,6 @@ public static class ScoreBoard
 	public static void SaveScore()
 	{
 		PlayerPrefs.SetInt(SCORE_KEY, _score);
+		PlayerPrefs.Save();
 	}
 }
